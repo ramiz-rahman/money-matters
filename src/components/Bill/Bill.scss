@@ -1,0 +1,31 @@
+.Bill {
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 280px;
+  padding: 0.5rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin: 1rem auto;
+
+  p,
+  h4 {
+    flex: 1 1 50%;
+    text-align: left;
+    margin: 0.5rem 0;
+  }
+
+  .right {
+    text-align: right;
+  }
+
+  time {
+    font-size: 0.8rem;
+  }
+
+  p:last-of-type {
+    margin-top: 0;
+  }
+}
