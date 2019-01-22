@@ -1,9 +1,15 @@
 import React, { Component } from 'react';
 import Header from './components/header/header';
 import Bill from './components/Bill/Bill';
+import BillDetail from './components/BillDetail/BillDetail';
+import { Bills } from './shared/Bills';
 import './App.scss';
 
 class App extends Component {
+  state = {
+    BILLS: Bills
+  };
+
   render() {
     return (
       <div className="App">
@@ -35,6 +41,15 @@ class App extends Component {
           paidBy="Roland"
           participants="7"
           date="2018-12-24 20:16"
+        />
+
+        <BillDetail
+          id={this.state.BILLS[0].id}
+          title={this.state.BILLS[0].title}
+          date={this.state.BILLS[0].date}
+          paidBy={this.state.BILLS[0].paidBy}
+          participants={this.state.BILLS[0].participants}
+          amount={this.state.BILLS[0].amount}
         />
       </div>
     );
