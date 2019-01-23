@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './ItemForm.scss';
 
 class ItemForm extends Component {
   constructor(props) {
@@ -21,23 +22,23 @@ class ItemForm extends Component {
 
   render() {
     return (
-      <div style={{ color: 'blue' }}>
+      <div className="ItemForm">
         <div>
-          <label htmlFor={'name'}>Name</label>
+          <label htmlFor={'itemName'}>Item Name</label>
           <input
             type="text"
-            id={'name'}
-            name={'name'}
+            id={'itemName'}
+            name={'itemName'}
             value={this.state.name}
             onChange={this.handleNameChange}
           />
         </div>
         <div>
-          <label htmlFor={'price'}>Price</label>
+          <label htmlFor={'itemPrice'}>Item Price</label>
           <input
             type="text"
-            id={'price'}
-            name={'price'}
+            id={'itemPrice'}
+            name={'itemPrice'}
             value={this.state.price}
             onChange={this.handlePriceChange}
           />

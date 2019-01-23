@@ -1,0 +1,43 @@
+.BillDetailForm {
+  box-sizing: border-box;
+  width: 300px;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: pink;
+
+  div {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.5rem;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    align-items: center;
+
+    input,
+    input[type='date'] {
+      border: 1px solid #ccc;
+      font-size: 1rem;
+      padding: 0.5em;
+    }
+  }
+
+  button,
+  input[type='submit'] {
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+    font-size: 1rem;
+    padding: 0.5em;
+    width: 200px;
+    margin: 0.5em;
+
+    &:hover {
+      background-color: green;
+      cursor: pointer;
+    }
+  }
+}

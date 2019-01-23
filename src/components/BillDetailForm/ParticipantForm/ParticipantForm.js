@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ItemForm from './ItemForm/ItemForm';
+import './ParticipantForm.scss';
 
 class ParticipantForm extends Component {
   constructor(props) {
@@ -24,15 +25,17 @@ class ParticipantForm extends Component {
 
   render() {
     return (
-      <div style={{ color: '#f00' }}>
-        <label htmlFor={'name'}>Name</label>
-        <input
-          type="text"
-          id={'name'}
-          name={'name'}
-          value={this.state.name}
-          onChange={this.handleNameChange}
-        />
+      <div className="ParticipantForm">
+        <div>
+          <label htmlFor={'participantName'}>Name</label>
+          <input
+            type="text"
+            id={'participantName'}
+            name={'participantName'}
+            value={this.state.name}
+            onChange={this.handleNameChange}
+          />
+        </div>
 
         {this.state.items.map((item, i) => (
           <ItemForm item={item} key={i} />

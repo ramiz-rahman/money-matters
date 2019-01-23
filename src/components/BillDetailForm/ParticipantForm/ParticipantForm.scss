@@ -1,0 +1,14 @@
+.BillDetailForm div.ParticipantForm {
+  display: flex;
+  flex-flow: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: yellow;
+
+  div {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+    align-items: center;
+  }
+}

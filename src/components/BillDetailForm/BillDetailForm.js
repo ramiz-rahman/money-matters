@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ParticipantForm from './ParticipantForm/ParticipantForm';
+import './BillDetailForm.scss';
 
 class BillDetailForm extends Component {
   state = {
@@ -15,24 +16,14 @@ class BillDetailForm extends Component {
     ]
   };
 
-  handleTitleChange = event => {
+  handleChange = event => {
     event.preventDefault();
-    this.setState({ title: event.target.value });
-  };
-
-  handleAmountChange = event => {
-    event.preventDefault();
-    this.setState({ amount: event.target.value });
-  };
-
-  handleDateChange = event => {
-    event.preventDefault();
-    this.setState({ date: event.target.value });
-  };
-
-  handlePaidByChange = event => {
-    event.preventDefault();
-    this.setState({ paidBy: event.target.value });
+    const value = event.target.value;
+    const field = event.target.name;
+    this.setState(prevState => {
+      prevState[field] = value;
+      return { ...prevState };
+    });
   };
 
   handleAddParticipant = event => {
@@ -44,19 +35,12 @@ class BillDetailForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const data = new FormData(event.target);
-    console.log(
-      data.get('title'),
-      data.get('amount'),
-      data.get('date'),
-      data.get('paidBy'),
-      data.get('participantName_1')
-    );
+    console.log(this.state);
   };
 
   render() {
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit} className="BillDetailForm">
         <div>
           <label htmlFor="title">Title</label>
           <input
@@ -64,7 +48,7 @@ class BillDetailForm extends Component {
             id="title"
             name="title"
             value={this.state.title}
-            onChange={this.handleTitleChange}
+            onChange={this.handleChange}
           />
         </div>
 
@@ -75,7 +59,7 @@ class BillDetailForm extends Component {
             id="amount"
             name="amount"
             value={this.state.amount}
-            onChange={this.handleAmountChange}
+            onChange={this.handleChange}
           />
         </div>
 
@@ -86,7 +70,7 @@ class BillDetailForm extends Component {
             id="paidBy"
             name="paidBy"
             value={this.state.paidBy}
-            onChange={this.handlePaidByChange}
+            onChange={this.handleChange}
           />
         </div>
 
@@ -97,7 +81,7 @@ class BillDetailForm extends Component {
             id="date"
             name="date"
             value={this.state.date}
-            onChange={this.handleDateChange}
+            onChange={this.handleChange}
           />
         </div>
 
