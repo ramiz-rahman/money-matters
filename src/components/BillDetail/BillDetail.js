@@ -18,8 +18,8 @@ const _getDue = (participants = []) => {
 
 const ParticipantBillList = ({ participants }) => (
   <ul>
-    {participants.map(participant => (
-      <li>
+    {participants.map((participant, i) => (
+      <li key={i}>
         <ParticipantBill participant={participant} />
       </li>
     ))}

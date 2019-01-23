@@ -21,8 +21,8 @@ const RenderItem = ({ item }) => (
 
 const ItemList = ({ items }) => (
   <ul>
-    {items.map(item => (
-      <RenderItem item={item} />
+    {items.map((item, i) => (
+      <RenderItem item={item} key={i} />
     ))}
   </ul>
 );
