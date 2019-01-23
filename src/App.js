@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from './components/header/header';
 import Bill from './components/Bill/Bill';
 import BillDetail from './components/BillDetail/BillDetail';
+import BillDetailForm from './components/BillDetailForm/BillDetailForm';
 import { Bills } from './shared/Bills';
 import './App.scss';
 
@@ -14,6 +15,7 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
+        <BillDetailForm />
         <Bill
           title="Wok &amp; Fire"
           amount="306"
