@@ -7,7 +7,7 @@ const Bill = ({ title, amount, paidBy, participants, date }) => (
     <h4>{title}</h4>
     <p className="right">Tk {new Intl.NumberFormat().format(amount)}</p>
     <p>Paid by {paidBy}</p>
-    <p className="right">{participants} pax</p>
+    <p className="right">{participants.length} pax</p>
     <p>
       <time>{moment(date).calendar(null, { sameElse: 'MMM Do YYYY' })}</time>
     </p>

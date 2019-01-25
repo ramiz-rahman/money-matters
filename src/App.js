@@ -1,10 +1,50 @@
 import React, { Component } from 'react';
+import { Switch, Route, Link } from 'react-router-dom';
 import Header from './components/Header/Header';
 import Bill from './components/Bill/Bill';
 import BillDetail from './components/BillDetail/BillDetail';
 import BillDetailForm from './components/BillDetailForm/BillDetailForm';
 import { Bills } from './shared/Bills';
 import './App.scss';
+
+const ListOfBills = ({ bills = [] }) => {
+  return bills.map((bill, index) => (
+    <Link to={`/bill/${index}`} key={bill.id}>
+      <Bill
+        id={bill.id}
+        title={bill.title}
+        amount={bill.amount}
+        paidBy={bill.paidBy}
+        participants={bill.participants}
+        date={bill.date}
+      />
+    </Link>
+  ));
+};
+
+const CreateBillButton = props => <Link to="/createBill">Create New Bill</Link>;
+
+const HomeScreen = ({ bills = [] }) => (
+  <>
+    <ListOfBills bills={bills} />
+    <CreateBillButton />
+  </>
+);
+
+const BillDetailScreen = ({ match, bills }) => {
+  const index = match.params.index;
+  const bill = bills[index];
+  return (
+    <BillDetail
+      id={bill.id}
+      title={bill.title}
+      amount={bill.amount}
+      paidBy={bill.paidBy}
+      participants={bill.participants}
+      date={bill.date}
+    />
+  );
+};
 
 class App extends Component {
   state = {
@@ -15,44 +55,21 @@ class App extends Component {
     return (
       <div className="App">
         <Header />
-        <BillDetailForm />
-        <Bill
-          title="Wok &amp; Fire"
-          amount="306"
-          paidBy="Ramiz"
-          participants="1"
-          date="2019-01-21 20:16"
-        />
-        <Bill
-          title="Burger King Gulshan 2"
-          amount="319"
-          paidBy="Ramiz"
-          participants="1"
-          date="2019-01-17 21:01"
-        />
-        <Bill
-          title="KFD and Cheez"
-          amount="2035"
-          paidBy="Shorna"
-          participants="5"
-          date="2018-10-15 20:16"
-        />
-        <Bill
-          title="Nandos"
-          amount="4785"
-          paidBy="Roland"
-          participants="7"
-          date="2018-12-24 20:16"
-        />
-
-        <BillDetail
-          id={this.state.BILLS[0].id}
-          title={this.state.BILLS[0].title}
-          date={this.state.BILLS[0].date}
-          paidBy={this.state.BILLS[0].paidBy}
-          participants={this.state.BILLS[0].participants}
-          amount={this.state.BILLS[0].amount}
-        />
+        <Switch>
+          <Route
+            exact
+            path="/"
+            render={() => <HomeScreen bills={this.state.BILLS} />}
+          />
+          <Route
+            exact
+            path="/bill/:index"
+            render={props => (
+              <BillDetailScreen bills={this.state.BILLS} {...props} />
+            )}
+          />
+          <Route exact path="/createBill" component={BillDetailForm} />
+        </Switch>
       </div>
     );
   }

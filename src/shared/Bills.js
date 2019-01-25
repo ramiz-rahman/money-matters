@@ -77,5 +77,213 @@ export const Bills = [
       }
     ],
     amount: '4583'
+  },
+  {
+    id: 2,
+    title: 'Art Cafe',
+    date: '2018-11-06 20:16',
+    paidBy: 'Imran',
+    participants: [
+      {
+        name: 'Imran',
+        items: [
+          {
+            name: 'Americano',
+            price: '190'
+          },
+          {
+            name: 'Chamcham',
+            price: '76'
+          }
+        ],
+        cleared: false
+      },
+      {
+        name: 'Raian',
+        items: [
+          {
+            name: 'Americano',
+            price: '190'
+          },
+          {
+            name: 'Chamcham',
+            price: '76'
+          }
+        ],
+        cleared: false
+      },
+      {
+        name: 'Rhythm',
+        items: [
+          {
+            name: 'Capuccino',
+            price: '253'
+          },
+          {
+            name: 'Chamcham',
+            price: '76'
+          }
+        ],
+        cleared: false
+      },
+      {
+        name: 'Wasim',
+        items: [
+          {
+            name: 'Iced Latte',
+            price: '253'
+          }
+        ]
+      },
+      {
+        name: 'Rana',
+        items: [
+          {
+            name: 'Chamcham',
+            price: '76'
+          }
+        ],
+        cleared: false
+      }
+    ],
+    amount: '1189'
+  },
+  {
+    id: 3,
+    title: 'KFD & CHEEZ',
+    date: '2018-11-26 20:16',
+    paidBy: 'Shorna',
+    participants: [
+      {
+        name: 'Mifta',
+        items: [
+          {
+            name: 'kfd',
+            price: '315'
+          },
+          {
+            name: 'cheez',
+            price: '92'
+          }
+        ],
+        cleared: false
+      },
+      {
+        name: 'Nabila',
+        items: [
+          {
+            name: 'kfd',
+            price: '315'
+          },
+          {
+            name: 'cheez',
+            price: '92'
+          }
+        ],
+        cleared: false
+      },
+      {
+        name: 'Mayisha',
+        items: [
+          {
+            name: 'kfd',
+            price: '315'
+          },
+          {
+            name: 'cheez',
+            price: '92'
+          }
+        ],
+        cleared: false
+      },
+      {
+        name: 'Rezwana',
+        items: [
+          {
+            name: 'kfd',
+            price: '315'
+          },
+          {
+            name: 'cheez',
+            price: '92'
+          }
+        ],
+        cleared: false
+      },
+      {
+        name: 'Shorna',
+        items: [
+          {
+            name: 'kfd',
+            price: '315'
+          },
+          {
+            name: 'cheez',
+            price: '92'
+          }
+        ],
+        cleared: false
+      }
+    ],
+    amount: '2035'
+  },
+  {
+    id: 4,
+    title: 'WoodHouse Grill',
+    date: '2018-10-18 20:16',
+    paidBy: 'Rana',
+    participants: [
+      {
+        name: 'Rana',
+        items: [
+          {
+            name: 'Pepper Steak + Water',
+            price: '917'
+          }
+        ],
+        cleared: false
+      },
+      {
+        name: 'Wasim',
+        items: [
+          {
+            name: 'Chicken Monterey + Caramel Latte',
+            price: '670'
+          }
+        ],
+        cleared: false
+      },
+      {
+        name: 'Imran',
+        items: [
+          {
+            name: 'Sirloin Steak + Water',
+            price: '1489'
+          }
+        ],
+        cleared: false
+      },
+      {
+        name: 'Shuhel',
+        items: [
+          {
+            name: 'Rump Steak + Water',
+            price: '1489'
+          }
+        ],
+        cleared: false
+      },
+      {
+        name: 'Neloy',
+        items: [
+          {
+            name: 'Rump Steak + Water',
+            price: '1438'
+          }
+        ],
+        cleared: false
+      }
+    ],
+    amount: '6003'
   }
 ];

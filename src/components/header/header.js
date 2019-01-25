@@ -1,11 +1,12 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import './Header.scss';
 
 const Header = props => (
   <header className="Header">
-    <nav>Navigation</nav>
-
-    <p>Money Matters</p>
+    <p>
+      <Link to="/">Money Matters</Link>
+    </p>
   </header>
 );
 
