@@ -51,6 +51,13 @@ class App extends Component {
     BILLS: Bills
   };
 
+  onSave = bill => {
+    this.setState(prevState => {
+      bill.id = prevState.BILLS.length;
+      return { BILLS: [bill, ...prevState.BILLS] };
+    });
+  };
+
   render() {
     return (
       <div className="App">
@@ -68,7 +75,11 @@ class App extends Component {
               <BillDetailScreen bills={this.state.BILLS} {...props} />
             )}
           />
-          <Route exact path="/createBill" component={BillDetailForm} />
+          <Route
+            exact
+            path="/createBill"
+            render={() => <BillDetailForm onSave={this.onSave} />}
+          />
         </Switch>
       </div>
     );

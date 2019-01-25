@@ -1,6 +1,6 @@
 export const Bills = [
   {
-    id: 1,
+    id: 0,
     title: 'Nandos & Crimson Cup',
     date: '2018-12-24 20:16',
     paidBy: 'Rana',
@@ -79,7 +79,7 @@ export const Bills = [
     amount: '4583'
   },
   {
-    id: 2,
+    id: 1,
     title: 'Art Cafe',
     date: '2018-11-06 20:16',
     paidBy: 'Imran',
@@ -149,7 +149,7 @@ export const Bills = [
     amount: '1189'
   },
   {
-    id: 3,
+    id: 2,
     title: 'KFD & CHEEZ',
     date: '2018-11-26 20:16',
     paidBy: 'Shorna',
@@ -228,7 +228,7 @@ export const Bills = [
     amount: '2035'
   },
   {
-    id: 4,
+    id: 3,
     title: 'WoodHouse Grill',
     date: '2018-10-18 20:16',
     paidBy: 'Rana',
