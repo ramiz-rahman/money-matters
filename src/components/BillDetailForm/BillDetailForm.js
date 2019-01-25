@@ -33,6 +33,15 @@ class BillDetailForm extends Component {
     }));
   };
 
+  handleChangeParticipant = (participant, index, event) => {
+    event.preventDefault();
+    this.setState(prevState => {
+      let updatedParticipants = [...prevState.participants];
+      updatedParticipants[index] = participant;
+      return { participants: [...updatedParticipants] };
+    });
+  };
+
   handleSubmit = event => {
     event.preventDefault();
     console.log(this.state);
@@ -86,7 +95,12 @@ class BillDetailForm extends Component {
         </div>
 
         {this.state.participants.map((participant, i) => (
-          <ParticipantForm key={i} participant={participant} />
+          <ParticipantForm
+            key={i}
+            index={i}
+            participant={participant}
+            onChange={this.handleChangeParticipant}
+          />
         ))}
 
         <button onClick={this.handleAddParticipant}>Add Participant</button>

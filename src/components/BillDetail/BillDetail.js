@@ -20,7 +20,7 @@ const ParticipantBillList = ({ participants }) => (
   <ul>
     {participants.map((participant, i) => (
       <li key={i}>
-        <ParticipantBill participant={participant} />
+        <ParticipantBill participant={participant} id={i} />
       </li>
     ))}
   </ul>

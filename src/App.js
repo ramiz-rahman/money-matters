@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Header from './components/header/header';
+import Header from './components/Header/Header';
 import Bill from './components/Bill/Bill';
 import BillDetail from './components/BillDetail/BillDetail';
 import BillDetailForm from './components/BillDetailForm/BillDetailForm';
