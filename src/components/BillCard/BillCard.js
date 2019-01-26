@@ -1,9 +1,9 @@
 import React from 'react';
 import moment from 'moment';
-import './Bill.scss';
+import './BillCard.scss';
 
-const Bill = ({ title, amount, paidBy, participants, date }) => (
-  <div className="Bill">
+const BillCard = ({ title, amount, paidBy, participants, date }) => (
+  <div className="BillCard">
     <h4>{title}</h4>
     <p className="right">Tk {new Intl.NumberFormat().format(amount)}</p>
     <p>Paid by {paidBy}</p>
@@ -14,4 +14,4 @@ const Bill = ({ title, amount, paidBy, participants, date }) => (
   </div>
 );
 
-export default Bill;
+export default BillCard;

@@ -1,60 +1,33 @@
 import React, { Component } from 'react';
-import { Switch, Route, Link } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import Header from './components/Header/Header';
-import Bill from './components/Bill/Bill';
-import BillDetail from './components/BillDetail/BillDetail';
-import BillDetailForm from './components/BillDetailForm/BillDetailForm';
+import HomeScreen from './screens/HomeScreen';
+import ReadBillScreen from './screens/ReadBillScreen';
+import CreateBillScreen from './screens/CreateBillScreen';
+import EditBillScreen from './screens/EditBillScreen';
 import { Bills } from './shared/Bills';
 import './App.scss';
-
-const ListOfBills = ({ bills = [] }) => {
-  return bills.map((bill, index) => (
-    <Link to={`/bill/${index}`} key={bill.id}>
-      <Bill
-        id={bill.id}
-        title={bill.title}
-        amount={bill.amount}
-        paidBy={bill.paidBy}
-        participants={bill.participants}
-        date={bill.date}
-      />
-    </Link>
-  ));
-};
-
-const CreateBillButton = props => <Link to="/createBill">Create New Bill</Link>;
-
-const HomeScreen = ({ bills = [] }) => (
-  <>
-    <ListOfBills bills={bills} />
-    <CreateBillButton />
-  </>
-);
-
-const BillDetailScreen = ({ match, bills }) => {
-  const index = match.params.index;
-  const bill = bills[index];
-  return (
-    <BillDetail
-      id={bill.id}
-      title={bill.title}
-      amount={bill.amount}
-      paidBy={bill.paidBy}
-      participants={bill.participants}
-      date={bill.date}
-    />
-  );
-};
 
 class App extends Component {
   state = {
     BILLS: Bills
   };
 
-  onSave = bill => {
+  handleCreate = bill => {
     this.setState(prevState => {
       bill.id = prevState.BILLS.length;
       return { BILLS: [bill, ...prevState.BILLS] };
+    });
+  };
+
+  handleEdit = bill => {
+    this.setState(prevState => {
+      const index = prevState.BILLS.findIndex(
+        prevBill => prevBill.id === bill.id
+      );
+      const updatedBills = [...prevState.BILLS];
+      updatedBills[index] = { ...bill };
+      return { BILLS: updatedBills };
     });
   };
 
@@ -70,15 +43,25 @@ class App extends Component {
           />
           <Route
             exact
-            path="/bill/:index"
+            path="/bill/:id"
             render={props => (
-              <BillDetailScreen bills={this.state.BILLS} {...props} />
+              <ReadBillScreen bills={this.state.BILLS} {...props} />
+            )}
+          />
+          <Route
+            path="/bill/:id/edit"
+            render={props => (
+              <EditBillScreen
+                onEdit={this.handleEdit}
+                bills={this.state.BILLS}
+                {...props}
+              />
             )}
           />
           <Route
             exact
             path="/createBill"
-            render={() => <BillDetailForm onSave={this.onSave} />}
+            render={() => <CreateBillScreen onCreate={this.handleCreate} />}
           />
         </Switch>
       </div>

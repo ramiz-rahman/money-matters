@@ -1,21 +1,20 @@
 import React, { Component } from 'react';
-import { Redirect } from 'react-router-dom';
 import ParticipantForm from './ParticipantForm/ParticipantForm';
 import './BillDetailForm.scss';
 
 class BillDetailForm extends Component {
+  bill = this.props.bill;
   state = {
-    title: '',
-    date: '',
-    amount: '',
-    paidBy: '',
-    participants: [
+    title: (this.bill && this.bill.title) || '',
+    date: (this.bill && this.bill.date) || '',
+    amount: (this.bill && this.bill.amount) || '',
+    paidBy: (this.bill && this.bill.paidBy) || '',
+    participants: (this.bill && this.bill.participants) || [
       {
         name: 'Rana',
         items: [{ name: '', price: '' }]
       }
-    ],
-    redirect: false
+    ]
   };
 
   handleChange = event => {
@@ -46,10 +45,8 @@ class BillDetailForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const { redirect, ...bill } = this.state;
-    console.log(bill);
-    this.props.onSave(bill);
-    this.setState({ redirect: true });
+    console.log(this.state);
+    this.props.onSave(this.state);
   };
 
   render() {
@@ -110,7 +107,6 @@ class BillDetailForm extends Component {
 
         <button onClick={this.handleAddParticipant}>Add Participant</button>
         <input type="submit" />
-        {this.state.redirect && <Redirect to="/" />}
       </form>
     );
   }
