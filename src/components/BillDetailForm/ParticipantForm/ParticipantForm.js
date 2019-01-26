@@ -18,6 +18,13 @@ class ParticipantForm extends Component {
     this.props.onChange(participant, this.props.index, event);
   };
 
+  handleDeleteItem = (deletedItem, event) => {
+    event.preventDefault();
+    const participant = { ...this.props.participant };
+    participant.items = participant.items.filter(item => item !== deletedItem);
+    this.props.onChange(participant, this.props.index, event);
+  };
+
   handleChangeItem = (item, index, event) => {
     event.preventDefault();
     const participant = this.props.participant;
@@ -45,6 +52,7 @@ class ParticipantForm extends Component {
             index={i}
             item={item}
             onChange={this.handleChangeItem}
+            onDelete={this.handleDeleteItem}
           />
         ))}
         <button onClick={this.handleAddItem}>Add Item</button>

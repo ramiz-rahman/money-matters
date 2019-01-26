@@ -34,6 +34,9 @@ class ItemForm extends Component {
             onChange={this.handleChange}
           />
         </div>
+        <button onClick={event => this.props.onDelete(this.props.item, event)}>
+          Delete Item
+        </button>
       </div>
     );
   }
