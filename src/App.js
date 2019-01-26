@@ -31,7 +31,17 @@ class App extends Component {
     });
   };
 
+  handleDelete = bill => {
+    this.setState(prevState => {
+      const updatedBills = prevState.BILLS.filter(
+        prevBill => prevBill.id !== bill.id
+      );
+      return { BILLS: updatedBills };
+    });
+  };
+
   render() {
+    console.log(this.state.BILLS);
     return (
       <div className="App">
         <Header />
@@ -45,7 +55,11 @@ class App extends Component {
             exact
             path="/bill/:id"
             render={props => (
-              <ReadBillScreen bills={this.state.BILLS} {...props} />
+              <ReadBillScreen
+                onDelete={this.handleDelete}
+                bills={this.state.BILLS}
+                {...props}
+              />
             )}
           />
           <Route
