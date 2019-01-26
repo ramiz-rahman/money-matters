@@ -34,6 +34,16 @@ class BillDetailForm extends Component {
     }));
   };
 
+  handleDeleteParticipant = (deletedParticipant, event) => {
+    event.preventDefault();
+    this.setState(prevState => {
+      const participants = prevState.participants.filter(
+        participant => participant !== deletedParticipant
+      );
+      return { participants: participants };
+    });
+  };
+
   handleChangeParticipant = (participant, index, event) => {
     event.preventDefault();
     this.setState(prevState => {
@@ -102,6 +112,7 @@ class BillDetailForm extends Component {
             index={i}
             participant={participant}
             onChange={this.handleChangeParticipant}
+            onDelete={this.handleDeleteParticipant}
           />
         ))}
 

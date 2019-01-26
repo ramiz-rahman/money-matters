@@ -56,6 +56,11 @@ class ParticipantForm extends Component {
           />
         ))}
         <button onClick={this.handleAddItem}>Add Item</button>
+        <button
+          onClick={event => this.props.onDelete(this.props.participant, event)}
+        >
+          Delete Participant
+        </button>
       </div>
     );
   }
